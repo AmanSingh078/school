@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Academics | Your School Name</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+      color: #102a43;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Navigation Menu */
+    .nav-menu {
+      display: flex;
+      justify-content: center;
+      background-color: #334e68;
+      padding: 1rem 0;
+      margin: 0;
+      flex-wrap: wrap;
+    }
+
+    .nav-menu li {
+      list-style: none;
+      margin: 0 15px;
+    }
+
+    .nav-menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 4px;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a.active {
+      color: #f0f4f8;
+      background-color: #486581;
+      border-bottom: none;
+      outline: none;
+    }
+
+    /* Container */
+    .container {
+      max-width: 960px;
+      margin: 2rem auto 3rem;
+      padding: 0 1rem;
+      flex-grow: 1;
+      overflow-wrap: break-word;
+    }
+
+    /* Hero */
+    .hero {
+      background: white;
+      padding: 2rem 2rem 2.5rem;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin: 0 0 0.5rem;
+      color: #2c3e50;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: #4a6572;
+      margin: 0;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.5;
+    }
+
+    /* Section styling */
+    section.academics-section {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      padding: 2rem 2rem 2.5rem;
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
+    }
+
+    section.academics-section h2 {
+      font-size: 1.85rem;
+      margin-top: 0;
+      margin-bottom: 1rem;
+      color: #2c3e50;
+      border-bottom: 3px solid #334e68;
+      padding-bottom: 8px;
+    }
+
+    section.academics-section p {
+      color: #555;
+      font-size: 1.05rem;
+      margin-bottom: 1.25rem;
+    }
+
+    /* Curriculum Items */
+    ul.curriculum-list {
+      list-style-type: disc;
+      padding-left: 22px;
+      color: #34495e;
+      margin-top: 0;
+      margin-bottom: 1.75rem;
+      font-size: 1.05rem;
+    }
+
+    ul.curriculum-list li {
+      margin-bottom: 0.65rem;
+    }
+
+    /* Grade Levels Grid */
+    .grades-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .grade-card {
+      background: #ecf0f1;
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+      box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+      text-align: center;
+      font-weight: 600;
+      color: #2c3e50;
+      font-size: 1.15rem;
+      transition: background-color 0.3s ease;
+      cursor: default;
+    }
+    .grade-card:hover {
+      background-color: #d1d9e6;
+    }
+
+    /* Academic Support */
+    .support-list {
+      list-style-type: none;
+      padding-left: 0;
+      margin-top: 1rem;
+      font-size: 1.05rem;
+    }
+
+    .support-list li {
+      background: #e1e7ec;
+      border-radius: 6px;
+      padding: 0.9rem 1rem;
+      margin-bottom: 0.85rem;
+      color: #34495e;
+      font-weight: 500;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.08);
+      transition: background-color 0.3s ease;
+    }
+    .support-list li:hover {
+      background-color: #c7d0db;
+    }
+
+    /* Teachers Section */
+    .teachers-section {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      padding: 2rem 2rem 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .teachers-section h2 {
+      font-size: 1.85rem;
+      margin-top: 0;
+      margin-bottom: 1rem;
+      color: #2c3e50;
+      border-bottom: 3px solid #334e68;
+      padding-bottom: 8px;
+    }
+
+    .teachers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .teacher-card {
+      background: #f9fbfc;
+      border-radius: 10px;
+      padding: 1rem 1rem 1.25rem;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+      text-align: center;
+      color: #2c3e50;
+      font-weight: 600;
+      transition: box-shadow 0.3s ease;
+    }
+    .teacher-card:hover {
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    }
+    .teacher-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 3px solid #334e68;
+    }
+    .teacher-name {
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+    .teacher-subject {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #486581;
+    }
+
+    /* Learning Environment */
+    .learning-env {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      padding: 2rem 2rem 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .learning-env h2 {
+      font-size: 1.85rem;
+      margin-top: 0;
+      margin-bottom: 1rem;
+      color: #2c3e50;
+      border-bottom: 3px solid #334e68;
+      padding-bottom: 8px;
+    }
+    .learning-env p {
+      font-size: 1.05rem;
+      color: #555;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+    .learning-features {
+      list-style-type: square;
+      padding-left: 22px;
+      font-size: 1.05rem;
+      color: #34495e;
+    }
+    .learning-features li {
+      margin-bottom: 0.55rem;
+    }
+
+    /* Footer */
+    footer.footer {
+      background-color: #334e68;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+    }
+
+    footer.footer p {
+      margin: 0.3rem 0;
+      font-size: 0.9rem;
+    }
+
+    footer.footer a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      transition: color 0.3s;
+    }
+
+    footer.footer a:hover,
+    footer.footer a:focus {
+      color: #a2b5c9;
+      outline: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container {
+        margin: 1rem;
+        padding: 1rem;
+      }
+
+      .hero h1,
+      section.academics-section h2,
+      .teachers-section h2,
+      .learning-env h2 {
+        font-size: 1.6rem;
+      }
+
+      ul.curriculum-list,
+      ul.support-list,
+      .learning-features {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .nav-menu {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .nav-menu li {
+        margin: 5px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <ul class="nav-menu" role="navigation" aria-label="Primary navigation menu">
+    <li><a href="homepage.html" class="nav-link">Home</a></li>
+    <li><a href="home.html" class="nav-link">About Us</a></li>
+    <li><a href="academics.html" class="nav-link active" aria-current="page">Academics</a></li>
+    <li><a href="addmissiom.html" class="nav-link">Admissions</a></li>
+    <li><a href="contact.html" class="nav-link">Contact</a></li>
+    <li><a href="login.html" class="btn btn-primary">Login</a></li>
+  </ul>
+
+  <main class="container" role="main">
+    <section class="hero" aria-label="Academics Introduction">
+      <h1>Academics at Your School</h1>
+      <p>Committed to excellence, personalized learning, and fostering lifelong curiosity, Your School offers a comprehensive academic program designed to inspire, engage, and prepare students for the challenges of tomorrow.</p>
+    </section>
+
+    <section class="academics-section" aria-labelledby="curriculum-label">
+      <h2 id="curriculum-label">Curriculum Overview</h2>
+      <p>Our curriculum blends classical teaching methods with innovative approaches, ensuring students gain mastery in foundational subjects while developing critical thinking skills and creativity.</p>
+      <ul class="curriculum-list">
+        <li>Mathematics: From basic numeracy to advanced calculus and applied mathematics.</li>
+        <li>Science: Emphasis on scientific inquiry, biology, chemistry, physics, and lab experiments.</li>
+        <li>Language Arts: Literature, composition, public speaking, and foreign language instruction.</li>
+        <li>Social Studies: History, geography, civics, and global cultures.</li>
+        <li>Technology Integration: Coding, robotics, and digital literacy embedded across subjects.</li>
+        <li>Arts & Music: Encouraging self-expression and creativity through various media.</li>
+        <li>Physical Education & Health: Promoting wellness, fitness, and lifelong healthy habits.</li>
+      </ul>
+    </section>
+
+    <section class="academics-section" aria-labelledby="grade-levels-label">
+      <h2 id="grade-levels-label">Grade Levels</h2>
+      <p>Our academic offerings span from early childhood education through the culmination of high school, with tailored tracks to meet the unique needs of each developmental stage.</p>
+      <div class="grades-grid" aria-label="Grade levels offered">
+        <div class="grade-card">Kindergarten</div>
+        <div class="grade-card">1st - 3rd Grade</div>
+        <div class="grade-card">4th - 6th Grade</div>
+        <div class="grade-card">7th - 8th Grade</div>
+        <div class="grade-card">9th - 10th Grade</div>
+        <div class="grade-card">11th - 12th Grade</div>
+      </div>
+    </section>
+
+    <section class="academics-section" aria-labelledby="extracurricular-label">
+      <h2 id="extracurricular-label">Extracurricular Activities</h2>
+      <p>We foster well-rounded development by offering a rich selection of extracurricular opportunities that complement our academics:</p>
+      <ul class="curriculum-list">
+        <li>Competitive and recreational sports: Basketball, soccer, track & field, swimming.</li>
+        <li>Music and arts programs: Band, orchestra, choir, drama club, visual arts studio.</li>
+        <li>Science, technology, engineering, and math (STEM) clubs: Robotics, coding, math team.</li>
+        <li>Student leadership and service groups: Student council, peer mentoring, community outreach.</li>
+        <li>Language and cultural clubs: Spanish, French, Mandarin clubs and cultural exchange programs.</li>
+      </ul>
+    </section>
+
+    <section class="academics-section" aria-labelledby="support-label">
+      <h2 id="support-label">Academic Support Services</h2>
+      <p>Dedicated support ensures every student thrives academically and personally through programs including:</p>
+      <ul class="support-list">
+        <li>Individualized tutoring and learning plans tailored to student needs.</li>
+        <li>Response to Intervention (RTI) and special education resources.</li>
+        <li>College counseling and career readiness workshops.</li>
+        <li>After-school homework help and study groups.</li>
+        <li>Access to experienced academic advisors and counselors.</li>
+      </ul>
+    </section>
+
+    <section class="teachers-section" aria-labelledby="teachers-label">
+      <h2 id="teachers-label">Meet Our Faculty</h2>
+      <p>Our experienced and passionate educators are committed to student success and continuous professional development.</p>
+      <div class="teachers-grid" aria-label="Faculty members">
+        <article class="teacher-card" tabindex="0">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Photo of Ms. Anna Smith" class="teacher-photo" loading="lazy" />
+          <div class="teacher-name">Ms. Anna Smith</div>
+          <div class="teacher-subject">Mathematics Department</div>
+          <p>Specializes in secondary math education, passionate about fostering analytical thinking.</p>
+        </article>
+        <article class="teacher-card" tabindex="0">
+          <img src="https://randomuser.me/api/portraits/men/33.jpg" alt="Photo of Mr. John Lee" class="teacher-photo" loading="lazy" />
+          <div class="teacher-name">Mr. John Lee</div>
+          <div class="teacher-subject">Science Department</div>
+          <p>Experienced science teacher focused on hands-on experiments and inquiry-based learning.</p>
+        </article>
+        <article class="teacher-card" tabindex="0">
+          <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Photo of Mrs. Laura Chen" class="teacher-photo" loading="lazy" />
+          <div class="teacher-name">Mrs. Laura Chen</div>
+          <div class="teacher-subject">Language Arts</div>
+          <p>Devoted to developing literacy skills through diverse literary works and writing workshops.</p>
+        </article>
+        <article class="teacher-card" tabindex="0">
+          <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="Photo of Mr. Carlos Martinez" class="teacher-photo" loading="lazy" />
+          <div class="teacher-name">Mr. Carlos Martinez</div>
+          <div class="teacher-subject">Physical Education</div>
+          <p>Encourages healthy lifestyles by facilitating team sports and fitness activities.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="learning-env" aria-labelledby="learning-env-label">
+      <h2 id="learning-env-label">Our Learning Environment</h2>
+      <p>We nurture a dynamic, inclusive, and supportive educational environment, with state-of-the-art facilities designed to enhance student engagement and success.</p>
+      <ul class="learning-features">
+        <li>Modern classrooms equipped with smart technology and flexible seating.</li>
+        <li>Science labs with advanced equipment for hands-on learning.</li>
+        <li>Dedicated art studios and music rooms fostering creativity.</li>
+        <li>Spacious library with digital resources and study areas.</li>
+        <li>Outdoor learning spaces including gardens and sports fields.</li>
+        <li>Safe and welcoming campus with supportive staff and community.</li>
+      </ul>
+    </section>
+
+    <section class="academics-section" aria-labelledby="diploma-label">
+      <h2 id="diploma-label">Diploma and Graduation Requirements</h2>
+      <p>Graduation requirements ensure students graduate well-prepared for college and careers:</p>
+      <ul class="curriculum-list">
+        <li>Minimum of 24 credit hours including core subjects and electives.</li>
+        <li>Completion of a senior capstone project or thesis.</li>
+        <li>Minimum GPA requirement of 2.5 for graduation.</li>
+        <li>Mandatory community service hours to encourage civic engagement.</li>
+        <li>Successful completion of standardized assessments aligned with state guidelines.</li>
+      </ul>
+    </section>
+
+    <section class="academics-section" aria-labelledby="technology-label">
+      <h2 id="technology-label">Technology Integration</h2>
+      <p>Technology is seamlessly integrated into our curriculum to prepare students for the digital world:</p>
+      <ul class="curriculum-list">
+        <li>Laptops and tablets available for student use in classroom and at home.</li>
+        <li>Robotics and coding classes from elementary to high school.</li>
+        <li>Learning management system for assignments, grades, and communication.</li>
+        <li>Digital citizenship programs teaching responsible technology use.</li>
+        <li>Virtual labs and online supplementary learning tools.</li>
+      </ul>
+    </section>
+
+    <section class="academics-section" aria-labelledby="college-prep-label">
+      <h2 id="college-prep-label">College Preparation</h2>
+      <p>We provide comprehensive support to guide students in post-secondary planning:</p>
+      <ul class="support-list">
+        <li>Academic advising tailored to student interests and strengths.</li>
+        <li>SAT, ACT preparation classes and practice tests.</li>
+        <li>College fairs and university visits with counselor support.</li>
+        <li>Application, essay writing, and scholarship workshops.</li>
+        <li>Internship and mentorship programs connecting students with professionals.</li>
+      </ul>
+    </section>
+
+    <section class="academics-section" aria-labelledby="parent-involvement-label">
+      <h2 id="parent-involvement-label">Parent & Community Involvement</h2>
+      <p>We believe strong collaboration with parents and the community enhances student success.</p>
+      <ul class="curriculum-list">
+        <li>Parent-Teacher Association with regular meetings and events.</li>
+        <li>Volunteering opportunities for parents within school programs.</li>
+        <li>Community partnerships providing resources and enrichment.</li>
+        <li>Workshops and seminars for parents on supporting student learning.</li>
+        <li>Regular updates via newsletters and parent portals.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <p>&copy; 2023 Your School Name. All rights reserved.</p>
+    <p>
+      <a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a> | 
+      <a href="https://twitter.com" target="_blank" rel="noopener">Twitter</a> | 
+      <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+    </p>
+  </footer>
+</body>
+</html>
+

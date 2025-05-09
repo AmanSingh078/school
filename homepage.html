@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI School - Empowering Education with AI</title>
+    <meta name="description" content="AI School integrates artificial intelligence into education to provide personalized learning experiences and smart tools for students, teachers, and parents.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-dark: #3730a3;
+            --secondary: #06b6d4;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            line-height: 1.5;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        /* Header & Navigation */
+        .header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        
+        .nav-link {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1.25rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--dark);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('image/19fa38c0884e9f650a2faa13edba9f8a.gif') center/cover no-repeat;
+            color: white;
+            padding: 8rem 1rem;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 5rem 1rem;
+            background-color: var(--light);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            background-color: var(--primary);
+            color: white;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 5rem 1rem;
+        }
+        
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-image {
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        
+        .about-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .about-content p {
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+        }
+        
+        /* Stats Section */
+        .stats {
+            background-color: var(--primary);
+            color: white;
+            padding: 4rem 1rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .stat-item h3 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-item p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* Programs Section */
+        .programs {
+            padding: 5rem 1rem;
+            background-color: var(--light);
+        }
+        
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .program-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .program-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .program-content {
+            padding: 1.5rem;
+        }
+        
+        .program-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .program-desc {
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            padding: 5rem 1rem;
+        }
+        
+        .testimonials-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .author-image {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        
+        .author-info h4 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .author-info p {
+            font-size: 0.875rem;
+            color: var(--gray);
+        }
+        
+        /* CTA Section */
+        .cta {
+            background-color: var(--dark);
+            color: white;
+            padding: 5rem 1rem;
+            text-align: center;
+        }
+        
+        .cta-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .cta h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta p {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 4rem 1rem 2rem;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: var(--gray-light);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray-light);
+            font-size: 0.875rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background-color: white;
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                transform: translateY(-150%);
+                transition: transform 0.3s;
+            }
+            
+            .nav-menu.active {
+                transform: translateY(0);
+            }
+            
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+            
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                    <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                </svg>
+                My School
+            </a>
+            <nav>
+                <button class="mobile-menu-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="#" class="nav-link">Home</a></li>
+                    <li><a href="home.html" class="nav-link">About Us</a></li>
+                    <li><a href="academics.html" class="nav-link">Academics</a></li>
+                    <li><a href="addmissiom.html" class="nav-link">Admissions</a></li>
+                  
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="login.html" class="btn btn-primary">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Welcome to the Future of Education</h1>
+                <p>Empowering Education - Where Innovation Meets Learning Excellence</p>
+                <div class="cta-buttons">
+                    <a href="addmissiom.html" class="btn btn-primary">Admissions</a>
+                    <a href="home.html" class="btn btn-outline">Learn More</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Why Choose My School</h2>
+                    <p class="section-subtitle">Our innovative approach combines cutting-edge technology with proven educational methods to create a unique learning experience.</p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M12 16v-4"></path>
+                                <path d="M12 8h.01"></path>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">AI-Powered Learning</h3>
+                        <p>Personalized education paths created by our advanced AI system that adapts to each student's unique learning style and pace.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Comprehensive Curriculum</h3>
+                        <p>A balanced approach combining STEM excellence with humanities and arts for well-rounded development.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Expert Faculty</h3>
+                        <p>Industry leaders and educational experts who bring real-world knowledge and passion to the classroom.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-container">
+                    <div class="about-image">
+                        <img src="https://i.gifer.com/7hv9.gif" alt="Students in a modern classroom" width="100%">
+                    </div>
+                    <div class="about-content">
+                        <h2>Reimagining Education for the Digital Age</h2>
+                        <p>Founded in 2020, My School was created with a bold vision: to transform traditional education by seamlessly integrating artificial intelligence and advanced technology with proven teaching methodologies.</p>
+                        <p>Our approach centers on developing the whole child - intellectually, emotionally, and socially - while preparing them for success in a rapidly evolving digital world.</p>
+                        <p>We believe that every student has unique talents and learning styles. Our AI-enhanced curriculum adapts to individual needs, ensuring each child reaches their full potential.</p>
+                        <a href="files/home.html" class="btn btn-primary">Learn More About Us</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>95%</h3>
+                        <p>Student Satisfaction</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>12:1</h3>
+                        <p>Student-Teacher Ratio</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>98%</h3>
+                        <p>College Acceptance Rate</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>24+</h3>
+                        <p>Advanced Programs</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="academics" class="programs">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Our Academic Programs</h2>
+                    <p class="section-subtitle">Explore our diverse range of programs designed to challenge and inspire students at every level.</p>
+                </div>
+                
+                <div class="programs-grid">
+                    <div class="program-card">
+                        <div class="program-image">
+                            <img src="https://www.asbsk.ac.th/wp-content/uploads/2023/06/Elementary-program-pic-41.jpg" alt="Elementary Program" width="100%">
+                        </div>
+                        <div class="program-content">
+                            <h3 class="program-title">Elementary Program</h3>
+                            <p class="program-desc">Building strong foundations through play-based learning and personalized instruction in core subjects.</p>
+                            <a href="#" class="btn btn-outline">Learn More</a>
+                        </div>
+                    </div>
+                    
+                    <div class="program-card">
+                        <div class="program-image">
+                            <img src="https://www.mycism.com/wp-content/uploads/2022/10/VIE-middle-school-program-1024x576.jpg" alt="Middle School Program" width="100%">
+                        </div>
+                        <div class="program-content">
+                            <h3 class="program-title">Middle School Program</h3>
+                            <p class="program-desc">Developing critical thinking and subject mastery while supporting social-emotional growth.</p>
+                            <a href="#" class="btn btn-outline">Learn More</a>
+                        </div>
+                    </div>
+                    
+                    <div class="program-card">
+                        <div class="program-image">
+                            <img src="data:image/webp;base64,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" alt="High School Program" width="100%">
+                        </div>
+                        <div class="program-content">
+                            <h3 class="program-title">High School Program</h3>
+                            <p class="program-desc">College-preparatory curriculum with specialized tracks in STEM, Business, and Arts & Humanities.</p>
+                            <a href="#" class="btn btn-outline">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">What Our Community Says</h2>
+                    <p class="section-subtitle">Hear from students, parents, and educators about their experiences at My School.</p>
+                </div>
+                
+                <div class="testimonials-container">
+                    <div class="testimonial-card">
+                        <p class="testimonial-content">"The personalized learning approach has completely transformed my daughter's educational experience. She's excited about school every day and her progress has been remarkable."</p>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <img src="/api/placeholder/100/100" alt="Parent testimonial" width="100%">
+                            </div>
+                            <div class="author-info">
+                                <h4>Sarah Johnson</h4>
+                                <p>Parent of 8th Grader</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <p class="testimonial-content">"As an educator, I've never felt more supported and empowered. The AI tools help me identify student needs and tailor my teaching, while still preserving the human connection that's essential to learning."</p>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <img src="/api/placeholder/100/100" alt="Teacher testimonial" width="100%">
+                            </div>
+                            <div class="author-info">
+                                <h4>Michael Rodriguez</h4>
+                                <p>Science Department Chair</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="admissions" class="cta">
+            <div class="cta-container">
+                <h2>Join Our Innovative Learning Community</h2>
+                <p>Applications for the 2025-2026 academic year are now open. Schedule a virtual tour or attend an upcoming open house to learn more about our programs.</p>
+                <a href="addmissiom.html" class="btn btn-primary">Apply Now</a>
+            </div>
+        </section>
+    </main>
+    
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>My School</h3>
+                    <p>Transforming education through innovation and personalized learning experiences.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="files/home.html">About Us</a></li>
+                        <li><a href="#academics">Academics</a></li>
+                        <li><a href="#admissions">Admissions</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li>123 Education Lane</li>
+                        <li>Innovation City, IN 12345</li>
+                        <li>Phone: (123) 456-7890</li>
+                        <li>Email: info@myschool.edu</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Connect With Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 My School. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Simple JavaScript for mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

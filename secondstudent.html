@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student's Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyB5IlLZCcUnwsWQ6R360tMIR3pcMO3Cx1A",
+      authDomain: "vital-92722.firebaseapp.com",
+      databaseURL: "https://vital-92722-default-rtdb.firebaseio.com",
+      projectId: "vital-92722",
+      storageBucket: "vital-92722.firebasestorage.app",
+      messagingSenderId: "141384962985",
+      appId: "1:141384962985:web:e18a741ef33058a75c6ab8",
+      measurementId: "G-EJ45EV7DKX"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
+  </script>
+</head>
+<body class="font-roboto bg-gradient-to-r from-blue-100 to-blue-300 min-h-screen py-10">
+  <div class="container mx-auto p-4">
+    <header class="flex justify-between items-center py-4">
+      <h1 class="text-3xl font-bold text-gray-800">Student's Portal</h1>
+    </header>
+
+    <!-- Announcements -->
+    <section class="bg-white p-6 rounded-lg shadow-lg max-w-xl mx-auto mb-8">
+      <h2 class="text-2xl font-semibold mb-4 text-gray-800">Recent Announcements</h2>
+      <div id="announcements-list" class="space-y-4">
+        <!-- Firebase will inject announcements here -->
+      </div>
+    </section>
+
+    <!-- Dashboard -->
+    <section class="bg-white p-6 rounded-lg shadow-lg max-w-xl mx-auto mb-8">
+      <h2 class="text-2xl font-semibold mb-4 text-gray-800">Dashboard</h2>
+      <div class="space-y-4">
+        <a href="studenthomework.html" class="flex items-center bg-gradient-to-r from-blue-500 to-blue-600 text-white p-3 rounded hover:from-blue-600 hover:to-blue-700">
+          <img src="https://storage.googleapis.com/a1aa/image/kgn1iZnfmJWeC0fgI9IUPuwh8gGSRpyflUlEt278DyWkHKefE.jpg" alt="Homework" class="mr-3 w-10 h-10">Upload your Homework
+        </a>
+        <a href="note.html" class="flex items-center bg-gradient-to-r from-green-500 to-green-600 text-white p-3 rounded hover:from-green-600 hover:to-green-700">
+          <img src="https://storage.googleapis.com/a1aa/image/W11NPce0erhry0nkmyn3Ix6HyV2p2oeeXHg0IKjZjhDXHKefE.jpg" alt="Notes" class="mr-3 w-10 h-10">See Notes
+        </a>
+        <a href="HOMEWORK.html" class="flex items-center bg-gradient-to-r from-purple-500 to-purple-600 text-white p-3 rounded hover:from-purple-600 hover:to-purple-700">
+          <img src="https://storage.googleapis.com/a1aa/image/XE5QhlCfe1i58kc9SF6zRB6MM0BqaXJJLVPqa13ie4spDFfPB.jpg" alt="Submissions" class="mr-3 w-10 h-10">See Homework
+        </a>
+
+        <a href="#quiz" class="flex items-center bg-gradient-to-r from-yellow-500 to-yellow-600 text-white p-3 rounded hover:from-yellow-600 hover:to-yellow-700">
+          <img src="https://storage.googleapis.com/a1aa/image/SM0JwKewrxTSUidT6GfL3UIWuCuzQQiNWrBXjAI4WSLyhifnA.jpg" alt="Quiz" class="mr-3 w-10 h-10">Give Quiz
+        </a>
+      </div>
+    </section>
+
+    <!-- Online Class Section -->
+    <section id="online-class" class="bg-white p-6 rounded-lg shadow-lg max-w-xl mx-auto">
+      <h2 class="text-2xl font-semibold mb-4 text-gray-800">Online Class</h2>
+      <p class="text-lg text-gray-700 mb-4">Join your online class using the link below:</p>
+      <a href="https://meet.google.com/" target="_blank" class="flex items-center bg-gradient-to-r from-red-500 to-red-600 text-white p-3 rounded hover:from-red-600 hover:to-red-700">
+        <img src="https://storage.googleapis.com/a1aa/image/3fGfixJPUYkzeJXi5keEeezhHyz4O1fOqNS0pPSzCGvv7QxfTA.jpg" alt="Meet" class="mr-3 w-10 h-10">Join Google Meet
+      </a>
+    </section>
+  </div>
+
+  <script>
+    const list = document.getElementById('announcements-list');
+    firebase.database().ref('announcements').on('value', (snapshot) => {
+      list.innerHTML = '';
+      const data = snapshot.val();
+      if (data) {
+        const items = Object.values(data).reverse();
+        items.forEach(({ title, description, date }) => {
+          const div = document.createElement('div');
+          div.className = "p-4 border border-gray-300 rounded-md relative bg-gray-50";
+          div.innerHTML = `
+            <h3 class="text-lg font-semibold text-gray-800">${title}</h3>
+            <p class="text-sm text-gray-600">${date}</p>
+            <p class="mt-2 text-gray-700">${description}</p>
+          `;
+          list.appendChild(div);
+        });
+      } else {
+        list.innerHTML = '<p class="text-gray-600">No announcements available.</p>';
+      }
+    });
+  </script>
+</body>
+</html>

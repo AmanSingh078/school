@@ -1,0 +1,79 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Homework Submission Overview</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-roboto bg-gradient-to-r from-blue-100 to-blue-300 min-h-screen flex items-center justify-center">
+    <div class="container mx-auto p-4">
+        <header class="flex justify-between items-center py-4">
+            <h1 class="text-3xl font-bold text-gray-800">Teacher's Portal</h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="#" class="text-blue-700 hover:underline"><i class="fas fa-arrow-left"></i> Go Back</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="bg-white p-8 rounded-lg shadow-lg max-w-lg mx-auto">
+            <h2 class="text-2xl font-semibold mb-6 text-gray-800">Homework Submissions</h2>
+            <p class="text-lg font-medium text-gray-700 mb-4">Total Submissions: <span id="total-submissions">0</span></p>
+            <div id="submissions-list" class="space-y-6">
+                <!-- Submissions will be dynamically added here -->
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Example data to simulate student submissions
+        const submissions = [
+            { name: "Student Name 1", title: "Homework Title 1" },
+            { name: "Student Name 2", title: "Homework Title 2" },
+            { name: "Student Name 3", title: "Homework Title 3" },
+            { name: "Student Name 4", title: "Homework Title 4" },
+            { name: "Student Name 5", title: "Homework Title 5" },
+            { name: "Student Name 6", title: "Homework Title 6" },
+            { name: "Student Name 7", title: "Homework Title 7" },
+            { name: "Student Name 8", title: "Homework Title 8" },
+            { name: "Student Name 9", title: "Homework Title 9" },
+            { name: "Student Name 10", title: "Homework Title 10" }
+        ];
+
+        function updateSubmissions() {
+            const submissionsList = document.getElementById('submissions-list');
+            const totalSubmissions = document.getElementById('total-submissions');
+            submissionsList.innerHTML = '';
+            submissions.forEach(submission => {
+                const submissionElement = document.createElement('div');
+                submissionElement.className = 'flex justify-between items-center bg-gray-100 p-4 rounded-md shadow-sm';
+                submissionElement.innerHTML = `
+                    <div>
+                        <h3 class="text-lg font-medium text-gray-700">${submission.name}</h3>
+                        <p class="text-sm text-gray-500">${submission.title}</p>
+                    </div>
+                    <a href="#" class="text-blue-500 hover:underline">View Submission</a>
+                `;
+                submissionsList.appendChild(submissionElement);
+            });
+            totalSubmissions.textContent = submissions.length;
+        }
+
+        // Simulate adding a new submission
+        function addSubmission(name, title) {
+            submissions.push({ name, title });
+            updateSubmissions();
+        }
+
+        // Initial update
+        updateSubmissions();
+
+        // Example of adding a new submission dynamically
+        setTimeout(() => {
+            addSubmission("Student Name 11", "Homework Title 11");
+        }, 5000);
+    </script>
+</body>
+</html>

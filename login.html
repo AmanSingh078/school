@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VIT Bhopal Portal</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at center, #1e1e1e, #0c0c0c);
+      color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .login-form {
+      background: radial-gradient(circle, #2c2c2c, #000000);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #00c8ff;
+      margin-bottom: 30px;
+      width: 100%;
+      max-width: 350px;
+    }
+
+    .login-form h2 {
+      margin-bottom: 15px;
+      color: #00c8ff;
+    }
+
+    .login-form input {
+      width: 90%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: none;
+      border-radius: 5px;
+      background: #1a1a1a;
+      color: white;
+    }
+
+    .login-form button {
+      width: 95%;
+      padding: 10px;
+      background-color: #00c8ff;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .login-form button:hover {
+      background-color: #00a8cc;
+    }
+
+    .logo-wrapper {
+      margin-bottom: 40px;
+      padding: 20px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #2c2c2c, #000000);
+      box-shadow: 0 0 20px #00c8ff;
+    }
+
+    .logo {
+      width: 150px;
+      height: auto;
+      border-radius: 50%;
+    }
+
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      margin-bottom: 30px;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .option-link {
+      text-decoration: none;
+      color: white;
+    }
+
+    .option {
+      background: radial-gradient(circle, #2c2c2c, #000000);
+      border-radius: 50%;
+      padding: 20px;
+      width: 100px;
+      height: 100px;
+      box-shadow: 0 0 10px #00c8ff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s;
+    }
+
+    .option:hover {
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+
+    .icon {
+      width: 30px;
+      margin-bottom: 6px;
+      filter: invert(1);
+    }
+
+    p {
+      margin: 0;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    footer {
+      font-size: 12px;
+      color: #ccc;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 480px) {
+      .option {
+        width: 80px;
+        height: 80px;
+        padding: 15px;
+      }
+
+      .icon {
+        width: 24px;
+      }
+
+      p {
+        font-size: 10px;
+      }
+
+      .logo {
+        width: 120px;
+      }
+
+      .logo-wrapper {
+        padding: 15px;
+      }
+
+      .login-form {
+        padding: 15px;
+      }
+
+      .login-form input, .login-form button {
+        width: 10%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Login form section -->
+    <div class="login-form">
+      <h2>Login page</h2>
+      </div>
+
+    <!-- Logo -->
+    <div class="logo-wrapper">
+      <img src="image/back-to-school-gif.gif" alt="VIT Logo" class="logo" />
+    </div>
+
+    <!-- Role-based options -->
+    <div class="options">
+      <a href="studentlogin.html" class="option-link">
+        <div class="option">
+          <img src="https://img.icons8.com/ios-filled/50/graduation-cap.png" alt="Student Icon" class="icon" />
+          <p>STUDENT</p>
+        </div>
+      </a>
+
+      <a href="teacherlogin.html" class="option-link">
+        <div class="option">
+          <img src="https://img.icons8.com/ios-filled/50/worker-male.png" alt="Employee Icon" class="icon" />
+          <p>EMPLOYEE</p>
+        </div>
+      </a>
+
+      <a href="/parent-login.html" class="option-link">
+        <div class="option">
+          <img src="https://img.icons8.com/ios-filled/50/family.png" alt="Parent Icon" class="icon" />
+          <p>PARENT</p>
+        </div>
+      </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2024 my school. All rights reserved.</p>
+    </footer>
+
+  </div>
+</body>
+</html>
+

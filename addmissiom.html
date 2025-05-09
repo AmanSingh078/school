@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>School Admission Form</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav-menu {
+    display: flex;
+    justify-content: center;
+    background-color: #334e68;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+  }
+
+  .nav-menu li {
+    list-style: none;
+    margin: 0 15px;
+  }
+
+  .nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+  }
+
+  .nav-menu a:hover {
+    color: #f0f4f8;
+  }
+
+  .container {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem 2.5rem;
+    max-height: 600px;
+    overflow-y: auto;
+    margin: auto;
+  }
+
+  h1 {
+    margin: 0 0 1.5rem;
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: #102a43;
+    text-align: center;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    font-weight: 600;
+    color: #334e68;
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
+  }
+  
+  input, select, textarea {
+    font-size: 1rem;
+    padding: 0.5rem 0.75rem;
+    border: 1.5px solid #bcccdc;
+    border-radius: 6px;
+    margin-bottom: 1.25rem;
+    font-family: inherit;
+    background-color: #f9fbfc;
+    color: #334e68;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #486581;
+    box-shadow: 0 0 5px rgba(72,101,129,0.4);
+    background-color: #fff;
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 70px;
+  }
+
+  .error {
+    border-color: #d64545 !important;
+    background-color: #ffe7e7 !important;
+  }
+
+  .error-message {
+    color: #d64545;
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+  }
+
+  button {
+    background-color: #334e68;
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 7px;
+    padding: 0.75rem 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+  }
+
+  button:hover,
+  button:focus {
+    background-color: #243b53;
+    outline: none;
+  }
+
+  button:active {
+    background-color: #1b2b3a;
+  }
+
+  .thank-you {
+    text-align: center;
+    color: #334e68;
+    font-weight: 600;
+    font-size: 1. 3rem;
+    margin-top: 2rem;
+  }
+  
+  .section-divider {
+    margin: 1.5rem 0;
+    border-top: 1px solid #d9e2ec;
+  }
+
+  .footer {
+    background-color: #334e68;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: auto;
+  }
+
+  .footer p {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  /* Scrollbar styling for overflow */
+  .container::-webkit-scrollbar {
+    width: 7px;
+  }
+  .container::-webkit-scrollbar-track {
+    background: #f0f4f8;
+    border-radius: 3px;
+  }
+  .container::-webkit-scrollbar-thumb {
+    background: #bcccdc;
+    border-radius: 3px;
+  }
+
+  @media (max-width: 420px) {
+    .container {
+      max-width: 100%;
+      padding: 1.5rem 1.75rem;
+    }
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+</head>
+<body>
+  <ul class="nav-menu">
+    <li><a href="homepage.html" class="nav-link">Home</a></li>
+    <li><a href="home.html" class="nav-link">About Us</a></li>
+    <li><a href="academics.html" class="nav-link">Academics</a></li>
+    <li><a href="#admissions" class="nav-link">Admissions</a></li>
+    <li><a href="contact.html" class="nav-link">Contact</a></li>
+    <li><a href="login.html" class="btn btn-primary">Login</a></li>
+  </ul>
+  
+  <div class="container" role="main" aria-label="School Admission Form">
+    <h1>Admission Form</h1>
+    <form id="admissionForm" novalidate>
+      <label for="fullName">Full Name *</label>
+      <input type="text" id="fullName" name="fullName" placeholder="John Doe" required autocomplete="name" />
+
+      <label for="dob">Date of Birth *</label>
+      <input type="date" id="dob" name="dob" required max="" autocomplete="bday" />
+
+      <label for="email">Email *</label>
+      <input type="email" id="email" name="email" placeholder="john@example.com" required autocomplete="email" />
+
+      <label for="phone">Phone Number *</label>
+      <input type="tel" id="phone" name="phone" placeholder="+1 234 567 8900" required pattern="^\+?[0-9\s\-]{7,15}$" autocomplete="tel" />
+
+      <label for="address">Address *</label>
+      <textarea id="address" name="address" placeholder="Your full address" required autocomplete="street-address"></textarea>
+      
+      <div class="section-divider" aria-hidden="true"></div>
+
+      <label for="previousSchool">Previous School</label>
+      <input type="text" id="previousSchool" name="previousSchool" placeholder="If applicable" autocomplete="organization" />
+
+      <label for="emergencyContact">Emergency Contact Name *</label>
+      <input type="text" id="emergencyContact" name="emergencyContact" placeholder="Jane Doe" required autocomplete="name" />
+
+      <label for="emergencyPhone">Emergency Contact Phone *</label>
+      <input type="tel" id="emergencyPhone" name="emergencyPhone" placeholder="+1 234 567 8900" required pattern="^\+?[0-9\s\-]{7,15}$" autocomplete="tel" />
+
+      <label for="grade">Grade Applying For *</label>
+      <select id="grade" name="grade" required>
+        <option value="" disabled selected>Select grade</option>
+        <option>Kindergarten</option>
+        <option>1st Grade</option>
+        <option>2nd Grade</option>
+        <option>3rd Grade</option>
+        <option>4th Grade</option>
+        <option>5th Grade</option>
+        <option>6th Grade</option>
+        <option>7th Grade</option>
+        <option>8th Grade</option>
+        <option>9th Grade</option>
+        <option>10th Grade</option>
+        <option>11th Grade</option>
+        <option>12th Grade</option>
+      </select>
+
+      <label for="startDate">Preferred Start Date *</label>
+      <input type="month" id="startDate" name="startDate" required min="" />
+
+      <label for="guardian">Parent/Guardian Name *</label>
+      <input type="text" id="guardian" name="guardian" placeholder="Jane Doe" required autocomplete="name" />
+
+      <button type="submit" aria-label="Submit Admission Form">Submit Application</button>
+      <div class="thank-you" id="thankYouMsg" role="alert" aria-live="polite" style="display:none;" tabindex="0">
+        Thank you for your application! We will contact you soon.
+      </div>
+    </form>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2023 Your School Name. All rights reserved.</p>
+    <p>
+      <a href="https://www.facebook.com" target="_blank" style="color: white;">Facebook</a> |
+      <a href="https://www.twitter.com" target="_blank" style="color: white;">Twitter</a> |
+      <a href="https://www.instagram.com" target="_blank" style="color: white;">Instagram</a>
+    </p>
+  </footer>
+
+<script>
+  // Set max date for DOB to today
+  const dobInput = document.getElementById('dob');
+  dobInput.max = new Date().toISOString().split('T')[0];
+
+  // Set min date for preferred start as current month
+  const startDateInput = document.getElementById('startDate');
+  const today = new Date();
+  const yyyy = today.getFullYear();
+  let mm = today.getMonth() + 1;
+  if(mm < 10) mm = '0' + mm;
+  startDateInput.min = `${yyyy}-${mm}`;
+
+  const form = document.getElementById('admissionForm');
+  const thankYouMsg = document.getElementById('thankYouMsg');
+
+  function validateField(field) {
+    let valid = true;
+    let errorText = '';
+
+    if(field.required) {
+      if(!field.value.trim()) {
+        valid = false;
+        errorText = 'This field is required';
+      }
+    }
+
+    if(field.type === 'email' && field.value) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if(!re.test(field.value.trim())) {
+        valid = false;
+        errorText = 'Please enter a valid email';
+      }
+    }
+
+    if(field.type === 'tel' && field.value) {
+      const re = /^\+?[0-9\s\-]{7,15}$/;
+      if(!re.test(field.value.trim())) {
+        valid = false;
+        errorText = 'Please enter a valid phone number';
+      }
+    }
+
+    if(field.id === 'dob' && field.value) {
+      const selectedDate = new Date(field.value);
+      const today = new Date();
+      if(selectedDate > today) {
+        valid = false;
+        errorText = 'Date of birth cannot be in the future';
+      }
+    }
+
+    if(field.tagName === 'SELECT' && field.required) {
+      if(!field.value) {
+        valid = false;
+        errorText = 'Please select an option';
+      }
+    }
+
+    if(field.id === 'startDate' && field.value) {
+      if(field.value < field.min) {
+        valid = false;
+        errorText = 'Start date cannot be earlier than this month';
+      }
+    }
+
+    return { valid, errorText };
+  }
+
+  function showError(field, message) {
+    field.classList.add('error');
+    let errorElem = field.nextElementSibling;
+    if (!errorElem || !errorElem.classList.contains('error-message')) {
+      errorElem = document.createElement('p');
+      errorElem.className = 'error-message';
+      field.parentNode.insertBefore(errorElem, field.nextSibling);
+    }
+    errorElem.textContent = message;
+  }
+
+  function clearError(field) {
+    field.classList.remove('error');
+    let errorElem = field.nextElementSibling;
+    if (errorElem && errorElem.classList.contains('error-message')) {
+      errorElem.remove();
+    }
+  }
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    let formValid = true;
+    const fields = form.querySelectorAll('input, select, textarea');
+
+    fields.forEach(field => {
+      clearError(field);
+      const { valid, errorText } = validateField(field);
+      if(!valid) {
+        showError(field, errorText);
+        formValid = false;
+      }
+    });
+
+    if(formValid) {
+      form.style.display = 'none';
+      thankYouMsg.style.display = 'block';
+      thankYouMsg.focus();
+    }
+  });
+</script>
+</body>
+</html>

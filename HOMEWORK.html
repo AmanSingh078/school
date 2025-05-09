@@ -1,0 +1,183 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework Upload</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-roboto bg-gradient-to-r from-blue-100 to-blue-300 min-h-screen flex items-center justify-center">
+    <div class="container mx-auto p-4">
+        <header class="flex justify-between items-center py-4">
+            <h1 class="text-3xl font-bold text-gray-800">Teacher's Portal</h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="#" class="text-blue-700 hover:underline"><i class="fas fa-arrow-left"></i> Go Back</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="bg-white p-8 rounded-lg shadow-lg max-w-lg mx-auto">
+            <h2 class="text-2xl font-semibold mb-6 text-gray-800">Upload Homework</h2>
+            
+            <form class="space-y-6" id="homework-form">
+                <div>
+                    <label for="homework-title" class="block text-sm font-medium text-gray-700">Homework Title</label>
+                    <input type="text" id="homework-title" class="mt-1 block w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" placeholder="Enter homework title">
+                </div>
+                <div>
+                    <label for="homework-description" class="block text-sm font-medium text-gray-700">Description</label>
+                    <textarea id="homework-description" class="mt-1 block w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" rows="4" placeholder="Enter homework description"></textarea>
+                </div>
+                <div>
+                    <label for="homework-file" class="block text-sm font-medium text-gray-700">Upload File</label>
+                    <input type="file" id="homework-file" class="mt-1 block w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label for="homework-image" class="block text-sm font-medium text-gray-700">Upload Image</label>
+                    <input type="file" id="homework-image" class="mt-1 block w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label for="homework-deadline" class="block text-sm font-medium text-gray-700">Deadline</label>
+                    <input type="date" id="homework-deadline" class="mt-1 block w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <button type="submit" class="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white p-3 rounded-md hover:from-blue-600 hover:to-blue-700 transition duration-300">Upload Homework</button>
+            </form>
+
+            <section class="mt-8">
+                <h3 class="text-xl font-semibold mb-4 text-gray-800">Uploaded Files</h3>
+                <ul class="space-y-4" id="uploaded-files">
+                    <li class="flex items-center justify-between p-4 bg-gray-100 rounded-md">
+                        <div>
+                            <p class="text-gray-700 font-medium">Homework Title 1</p>
+                            <p class="text-gray-500 text-sm">Description of the homework 1</p>
+                            <p class="text-gray-400 text-xs">Uploaded on: <span class="upload-date">2023-10-01 10:00 AM</span></p>
+                            <p class="text-gray-400 text-xs">Deadline: <span class="deadline-date">2023-10-10</span></p>
+                        </div>
+                        <div class="flex space-x-2">
+                            <a href="#" class="text-blue-500 hover:underline"><i class="fas fa-file-download"></i> File</a>
+                            <a href="#" class="text-blue-500 hover:underline open-image"><i class="fas fa-image"></i> Image</a>
+                            <button class="text-red-500 hover:underline delete-btn"><i class="fas fa-trash-alt"></i> Delete</button>
+                        </div>
+                    </li>
+                    <li class="flex items-center justify-between p-4 bg-gray-100 rounded-md">
+                        <div>
+                            <p class="text-gray-700 font-medium">Homework Title 2</p>
+                            <p class="text-gray-500 text-sm">Description of the homework 2</p>
+                            <p class="text-gray-400 text-xs">Uploaded on: <span class="upload-date">2023-10-01 11:00 AM</span></p>
+                            <p class="text-gray-400 text-xs">Deadline: <span class="deadline-date">2023-10-11</span></p>
+                        </div>
+                        <div class="flex space-x-2">
+                            <a href="#" class="text-blue-500 hover:underline"><i class="fas fa-file-download"></i> File</a>
+                            <a href="#" class="text-blue-500 hover:underline open-image"><i class="fas fa-image"></i> Image</a>
+                            <button class="text-red-500 hover:underline delete-btn"><i class="fas fa-trash-alt"></i> Delete</button>
+                        </div>
+                    </li>
+                    <li class="flex items-center justify-between p-4 bg-gray-100 rounded-md">
+                        <div>
+                            <p class="text-gray-700 font-medium">Homework Title 3</p>
+                            <p class="text-gray-500 text-sm">Description of the homework 3</p>
+                            <p class="text-gray-400 text-xs">Uploaded on: <span class="upload-date">2023-10-01 12:00 PM</span></p>
+                            <p class="text-gray-400 text-xs">Deadline: <span class="deadline-date">2023-10-12</span></p>
+                        </div>
+                        <div class="flex space-x-2">
+                            <a href="#" class="text-blue-500 hover:underline"><i class="fas fa-file-download"></i> File</a>
+                            <a href="#" class="text-blue-500 hover:underline open-image"><i class="fas fa-image"></i> Image</a>
+                            <button class="text-red-500 hover:underline delete-btn"><i class="fas fa-trash-alt"></i> Delete</button>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.getElementById('homework-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const title = document.getElementById('homework-title').value;
+            const description = document.getElementById('homework-description').value;
+            const file = document.getElementById('homework-file').files[0];
+            const image = document.getElementById('homework-image').files[0];
+            const deadline = document.getElementById('homework-deadline').value;
+
+            const now = new Date();
+            const uploadDate = now.toLocaleDateString() + ' ' + now.toLocaleTimeString();
+
+            const newListItem = document.createElement('li');
+            newListItem.classList.add('flex', 'items-center', 'justify-between', 'p-4', 'bg-gray-100', 'rounded-md');
+            newListItem.innerHTML = `
+                <div>
+                    <p class="text-gray-700 font-medium">${title}</p>
+                    <p class="text-gray-500 text-sm">${description}</p>
+                    <p class="text-gray-400 text-xs">Uploaded on: <span class="upload-date">${uploadDate}</span></p>
+                    <p class="text-gray-400 text-xs">Deadline: <span class="deadline-date">${deadline}</span></p>
+                </div>
+                <div class="flex space-x-2">
+                    <a href="#" class="text-blue-500 hover:underline open-file"><i class="fas fa-file-download"></i> File</a>
+                    <a href="#" class="text-blue-500 hover:underline open-image"><i class="fas fa-image"></i> Image</a>
+                    <button class="text-red-500 hover:underline delete-btn"><i class="fas fa-trash-alt"></i> Delete</button>
+                </div>
+            `;
+
+            document.getElementById('uploaded-files').appendChild(newListItem);
+
+            // Clear the form
+            document.getElementById('homework-form').reset();
+
+            // Add event listener to the delete button
+            newListItem.querySelector('.delete-btn').addEventListener('click', function() {
+                newListItem.remove();
+            });
+
+            // Add event listener to the open file link
+            newListItem.querySelector('.open-file').addEventListener('click', function(event) {
+                event.preventDefault();
+                if (file) {
+                    const fileUrl = URL.createObjectURL(file);
+                    window.open(fileUrl, '_blank');
+                }
+            });
+
+            // Add event listener to the open image link
+            newListItem.querySelector('.open-image').addEventListener('click', function(event) {
+                event.preventDefault();
+                if (image) {
+                    const imageUrl = URL.createObjectURL(image);
+                    window.open(imageUrl, '_blank');
+                }
+            });
+        });
+
+        // Add event listeners to existing delete buttons
+        document.querySelectorAll('.delete-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                button.closest('li').remove();
+            });
+        });
+
+        // Add event listeners to existing open file links
+        document.querySelectorAll('.open-file').forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                const fileUrl = link.getAttribute('data-file-url');
+                if (fileUrl) {
+                    window.open(fileUrl, '_blank');
+                }
+            });
+        });
+
+        // Add event listeners to existing open image links
+        document.querySelectorAll('.open-image').forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                const imageUrl = link.getAttribute('data-image-url');
+                if (imageUrl) {
+                    window.open(imageUrl, '_blank');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI School - Empowering Education with AI</title>
+    <meta name="description" content="AI School integrates artificial intelligence into education to provide personalized learning experiences and smart tools for students, teachers, and parents.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .hero {
+            background-size: cover;
+            background-position: center;
+            transition: background-image 1s ease-in-out;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                    <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                </svg>
+                My School
+            </a>
+            <nav>
+                <button class="mobile-menu-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="homepage.html" class="nav-link">Home</a></li>
+                    <li><a href="home.html" class="nav-link">About Us</a></li>
+                    <li><a href="academics.html" class="nav-link">Academics</a></li>
+                    <li><a href="addmissiom.html" class="nav-link">Admissions</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="login.html" class="btn btn-primary">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="hero-section">
+            <div class="hero-content">
+                <h1>Welcome to the Future of Education</h1>
+                <p>Empowering Education - Where Innovation Meets Learning Excellence</p>
+                <div class="cta-buttons">
+                    <a href="homepage.html" class="btn btn-primary">Get Started</a>
+                    <a href="home.html" class="btn btn-outline">Learn More</a>
+                </div>
+            </div>
+        </section>
+ </main>
+
+    <script>
+        const hero = document.getElementById('hero-section');
+        const images = [
+            'https://c1.wallpaperflare.com/preview/968/730/441/building-cheyenne-photos-high-school.jpg',
+            'image/440fcf3223b1f17104641f7e2833b2b3.jpg',
+        
+            'https://c1.wallpaperflare.com/preview/245/878/523/building-education-florida-photos.jpg',
+            'image/back-school-background-with-school-supplies-copy-space_23-2148958977.jpg'
+        ];
+
+        let currentIndex = 0;
+
+        function changeBackground() {
+            hero.style.backgroundImage = `url('${images[currentIndex]}')`;
+            currentIndex = (currentIndex + 1) % images.length;
+        }
+
+        // Initial background
+        changeBackground();
+
+        // Change every 5 seconds
+        setInterval(changeBackground, 5000);
+    </script>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
